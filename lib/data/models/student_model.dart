@@ -1,34 +1,37 @@
 /*
 Template for Data Models
 
-- Define data models here (e.g., StudentModel).
+- Define data models for the app (e.g., Student, Attendance, Class).
 - Example:
-  class StudentModel {
-    final String id;
-    final String name;
-    final String fingerprintTemplate;
-    final String imagePath;
-
-    StudentModel({
-      required this.id,
-      required this.name,
-      required this.fingerprintTemplate,
-      required this.imagePath,
-    });
-  }
+  static const String classStudent = "student";
+  static const String studentName = "name";
 */
 
 class StudentModel {
-  // Add your model properties here
-  final String id;
-  final String name;
-  final String fingerprintTemplate;
-  final String imagePath;
+  //----------------------------------------------------------
+  // Model type definition
+  static const String model = "model";
+  static const String classType = "class_type";
 
-  StudentModel({
-    required this.id,
-    required this.name,
-    required this.fingerprintTemplate,
-    required this.imagePath,
-  });
+  //----------------------------------------------------------
+  // Student model
+  static const String classStudent = "student";
+  static const String studentId = "id";
+  static const String studentName = "name";
+  static const String studentImage = "image";
+  static const String studentClass = "class";
+  static const String studentGrade = "grade";
+  static const String studentFingerprintTemplate = "fingerprint_template";
+
+  //----------------------------------------------------------
+  // Student key list
+  static Map<dynamic, dynamic> studentKeyList = {
+    StudentModel.classType: StudentModel.classStudent,
+    StudentModel.studentId: "",
+    StudentModel.studentName: "",
+    StudentModel.studentImage: "",
+    StudentModel.studentClass: "",
+    StudentModel.studentGrade: "",
+    StudentModel.studentFingerprintTemplate: "",
+  };
 }

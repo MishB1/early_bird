@@ -7,7 +7,7 @@ Template for Pages/Screens
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:school_attendance/presentation/providers/attendance_provider.dart';
-import 'package:school_attendance/core/constants/app_strings.dart';
+import 'package:school_attendance/core/constants/app_constants.dart';
 
   class AttendancePage extends StatelessWidget {
     @override
