@@ -1,19 +1,26 @@
-/*
-Template for Repository Implementations
+import '../../domain/repositories/student_repository.dart';
+import '../datasources/fingerprint_data_source.dart';
+import '../datasources/student_data.dart';
+import '../models/student_model.dart';
 
-- Implement repository interfaces here.
-- Example:
-import 'package:school_attendance/data/datasources/local_storage/local_storage.dart';
-import 'package:school_attendance/domain/repositories/student_repository.dart';
+class StudentRepositoryImpl implements StudentRepository {
+  final FingerprintDataSource fingerprintDataSource;
 
-  class StudentRepositoryImpl implements StudentRepository {
-    final LocalStorage localStorage;
+  StudentRepositoryImpl({required this.fingerprintDataSource});
 
-    StudentRepositoryImpl({required this.localStorage});
-
-    @override
-    Future<StudentModel> getStudentByFingerprint(String fingerprint) async {
-      return localStorage.getStudentByFingerprint(fingerprint);
-    }
+  @override
+  Future<Map<String, dynamic>> getStudentByFingerprint() async {
+    final studentId = await fingerprintDataSource.scanFingerprint();
+    return getStudentById(studentId);
   }
-*/
+
+  Future<Map<String, dynamic>> getStudentById(String studentId) async {
+    // Fetch student from local database or sample data
+    for (var student in StudentData.dummyStudents) {
+      if (student[StudentModel.model][StudentModel.studentId] == studentId) {
+        return student[StudentModel.model]; // Return the student data as a Map
+      }
+    }
+    throw Exception('Student not found');
+  }
+}

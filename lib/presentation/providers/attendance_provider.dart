@@ -1,32 +1,26 @@
-/*
-Template for State Management
-
-- Define state management logic here (e.g., AttendanceProvider).
-- Example:
-
 import 'package:flutter/material.dart';
-import 'package:school_attendance/domain/usecases/get_student_by_fingerprint.dart';
-import 'package:school_attendance/domain/entities/student.dart';
+import '../../domain/usecases/get_student_by_fingerprint.dart';
 
-  class AttendanceProvider with ChangeNotifier {
-    final GetStudentByFingerprint getStudentByFingerprint;
+class AttendanceProvider with ChangeNotifier {
+  final GetStudentByFingerprint getStudentByFingerprint;
 
-    AttendanceProvider({required this.getStudentByFingerprint});
+  AttendanceProvider({required this.getStudentByFingerprint});
 
-    bool isLoading = false;
-    Student? student;
+  bool isLoading = false;
+  Map<String, dynamic>? studentData;
 
-    Future<void> fetchStudent(String fingerprint) async {
-      isLoading = true;
-      notifyListeners();
+  Future<void> fetchStudent() async {
+    isLoading = true;
+    notifyListeners();
 
-      student = await getStudentByFingerprint(fingerprint);
-
-      isLoading = false;
-      notifyListeners();
+    try {
+      studentData = await getStudentByFingerprint();
+    } catch (e) {
+      print('Error fetching student: $e');
+      studentData = null; // Handle errors gracefully
     }
+
+    isLoading = false;
+    notifyListeners();
   }
-*/
-
-
-
+}

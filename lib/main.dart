@@ -1,46 +1,23 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'data/respositories/student_repository_impl.dart';
+import 'presentation/pages/attendance_page.dart';
+import 'presentation/providers/attendance_provider.dart';
+import 'data/datasources/fingerprint_data_source.dart';
+import 'domain/usecases/get_student_by_fingerprint.dart';
 
-import 'firebase_options.dart';
+void main() {
+  // Initialize dependencies
+  final fingerprintDataSource = MockFingerprintDataSource();
+  final studentRepository = StudentRepositoryImpl(fingerprintDataSource: fingerprintDataSource);
+  final getStudentByFingerprint = GetStudentByFingerprint(repository: studentRepository); // Add repository parameter
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
-  // Test Firestore connection
-  final firestore = FirebaseFirestore.instance;
-  await firestore.collection('test').add({
-    'message': 'Hello, Firebase!',
-    'timestamp': DateTime.now(),
-  });
-
-  // Test Firebase Authentication
-  final auth = FirebaseAuth.instance;
-  try {
-    await auth.signInWithEmailAndPassword(
-      email: 'test@example.com',
-      password: 'password123',
-    );
-    print('User signed in: ${auth.currentUser?.email}');
-  } catch (e) {
-    print('Error signing in: $e');
-  }
-
-
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'School Attendance',
-      home: Scaffold(
-        appBar: AppBar(title: Text('School Attendance')),
-        body: Center(child: Text('Welcome to School Attendance!')),
+  runApp(
+    MaterialApp(
+      home: ChangeNotifierProvider(
+        create: (_) => AttendanceProvider(getStudentByFingerprint: getStudentByFingerprint),
+        child: AttendancePage(),
       ),
-    );
-  }
+    ),
+  );
 }
