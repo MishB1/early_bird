@@ -1,12 +1,3 @@
-/*
-Template for Data Models
-
-- Define data models for the app (e.g., Student, Attendance, Class).
-- Example:
-  static const String classStudent = "student";
-  static const String studentName = "name";
-*/
-
 class StudentModel {
   //----------------------------------------------------------
   // Model type definition

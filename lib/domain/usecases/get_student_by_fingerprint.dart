@@ -1,19 +1,15 @@
-/*
-Template for Use Cases
+import '../repositories/student_repository.dart';
 
-- Define use cases here (e.g., GetStudentByFingerprint).
-- Example:
-import 'package:school_attendance/domain/repositories/student_repository.dart';
+// Use case class for retrieving a student by their fingerprint.
+class GetStudentByFingerprint {
+  // Dependency: StudentRepository to fetch student data.
+  final StudentRepository repository;
 
-  class GetStudentByFingerprint {
-    final StudentRepository repository;
+  // Constructor to inject the required StudentRepository.
+  GetStudentByFingerprint({required this.repository});
 
-    GetStudentByFingerprint({required this.repository});
-
-    Future<Student> call(String fingerprint) async {
-      return repository.getStudentByFingerprint(fingerprint);
-    }
+  // Executes the use case to retrieve a student by fingerprint.
+  Future<Map<String, dynamic>> call() async {
+    return repository.getStudentByFingerprint();
   }
-*/
-
-
+}

@@ -1,32 +1,35 @@
-/*
-Template for State Management
-
-- Define state management logic here (e.g., AttendanceProvider).
-- Example:
-
 import 'package:flutter/material.dart';
-import 'package:school_attendance/domain/usecases/get_student_by_fingerprint.dart';
-import 'package:school_attendance/domain/entities/student.dart';
+import '../../domain/usecases/get_student_by_fingerprint.dart';
 
-  class AttendanceProvider with ChangeNotifier {
-    final GetStudentByFingerprint getStudentByFingerprint;
+// Provider class to manage attendance-related state and logic.
+class AttendanceProvider with ChangeNotifier {
+  // Dependency: Use case to fetch student data by fingerprint.
+  final GetStudentByFingerprint getStudentByFingerprint;
 
-    AttendanceProvider({required this.getStudentByFingerprint});
+  // Constructor to inject the required use case.
+  AttendanceProvider({required this.getStudentByFingerprint});
 
-    bool isLoading = false;
-    Student? student;
+  // Loading state to indicate if data is being fetched.
+  bool isLoading = false;
 
-    Future<void> fetchStudent(String fingerprint) async {
-      isLoading = true;
-      notifyListeners();
+  // Holds the fetched student data.
+  Map<String, dynamic>? studentData;
 
-      student = await getStudentByFingerprint(fingerprint);
+  // Fetches student data using the fingerprint scanning use case.
+  Future<void> fetchStudent() async {
+    isLoading = true; // Set loading state to true.
+    notifyListeners(); // Notify listeners to update the UI.
 
-      isLoading = false;
-      notifyListeners();
+    try {
+      // Fetch student data using the injected use case.
+      studentData = await getStudentByFingerprint();
+    } catch (e) {
+      // Handle errors and reset student data if fetching fails.
+      print('Error fetching student: $e');
+      studentData = null;
     }
+
+    isLoading = false; // Set loading state to false.
+    notifyListeners(); // Notify listeners to update the UI.
   }
-*/
-
-
-
+}

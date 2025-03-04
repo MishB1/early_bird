@@ -1,4 +1,3 @@
-// Define sample data for the app (e.g., students, attendance records).
 import '../models/student_model.dart';
 
 class StudentData {
@@ -27,7 +26,54 @@ class StudentData {
         StudentModel.studentFingerprintTemplate: "template_1002",
       },
     },
+    {
+      StudentModel.model: {
+        StudentModel.classType: StudentModel.classStudent,
+        StudentModel.studentId: "1003",
+        StudentModel.studentName: "Peter Jones",
+        StudentModel.studentImage:
+        "https://images.unsplash.com/photo-1534528741727-7be1a6a0d606?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        StudentModel.studentClass: "Class 6B",
+        StudentModel.studentGrade: "Grade 6",
+        StudentModel.studentFingerprintTemplate: "template_1003",
+      },
+    },
+    {
+      StudentModel.model: {
+        StudentModel.classType: StudentModel.classStudent,
+        StudentModel.studentId: "1004",
+        StudentModel.studentName: "Mary Williams",
+        StudentModel.studentImage:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        StudentModel.studentClass: "Class 6B",
+        StudentModel.studentGrade: "Grade 6",
+        StudentModel.studentFingerprintTemplate: "template_1004",
+      },
+    },
+    {
+      StudentModel.model: {
+        StudentModel.classType: StudentModel.classStudent,
+        StudentModel.studentId: "1005",
+        StudentModel.studentName: "David Brown",
+        StudentModel.studentImage:
+        "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        StudentModel.studentClass: "Class 7C",
+        StudentModel.studentGrade: "Grade 7",
+        StudentModel.studentFingerprintTemplate: "template_1005",
+      },
+    },
+    {
+      StudentModel.model: {
+        StudentModel.classType: StudentModel.classStudent,
+        StudentModel.studentId: "1006",
+        StudentModel.studentName: "Sarah Davis",
+        StudentModel.studentImage:
+        "https://images.unsplash.com/photo-1508214751196-bcfd699a1d59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        StudentModel.studentClass: "Class 7C",
+        StudentModel.studentGrade: "Grade 7",
+        StudentModel.studentFingerprintTemplate: "template_1006",
+      },
+    },
   ];
 }
-
 

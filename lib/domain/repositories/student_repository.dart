@@ -1,12 +1,5 @@
-/*
-Template for Repository Interfaces
-
-- Define abstract repository interfaces here.
-- Example:
-import 'package:school_attendance/domain/entities/student.dart';
-
-  abstract class StudentRepository {
-    Future<Student> getStudentByFingerprint(String fingerprint);
-  }
-*/
-
+// Abstract class defining the contract for student-related operations.
+abstract class StudentRepository {
+  // Retrieves a student's data by scanning their fingerprint.
+  Future<Map<String, dynamic>> getStudentByFingerprint();
+}
