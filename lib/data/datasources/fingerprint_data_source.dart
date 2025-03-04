@@ -1,26 +1,24 @@
-/*
-Template for Fingerprint Data Source
-
-- Define methods to interact with the fingerprint scanner.
-*/
-
+// Abstract class defining the contract for fingerprint data sources.
 abstract class FingerprintDataSource {
   Future<String> scanFingerprint();
 }
 
+// Mock implementation of FingerprintDataSource for testing purposes.
 class MockFingerprintDataSource implements FingerprintDataSource {
   @override
   Future<String> scanFingerprint() async {
-    // Simulate fingerprint scanning
-    await Future.delayed(Duration(seconds: 2)); // Simulate delay
-    return "1001"; // Return a hardcoded student ID for testing
+    // Simulate a 2-second delay to mimic fingerprint scanning.
+    await Future.delayed(Duration(seconds: 2));
+    // Return a hardcoded fingerprint template for testing.
+    return "template_1006";
   }
 }
 
+// Implementation of FingerprintDataSource for interacting with a physical fingerprint scanner.
 class PhysicalFingerprintDataSource implements FingerprintDataSource {
   @override
   Future<String> scanFingerprint() async {
-    // Implement logic to interact with a physical fingerprint scanner
+    // Placeholder for actual logic to interact with a physical fingerprint scanner.
     throw UnimplementedError();
   }
 }
