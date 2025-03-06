@@ -8,9 +8,9 @@ class MockFingerprintDataSource implements FingerprintDataSource {
   @override
   Future<String> scanFingerprint() async {
     // Simulate a 2-second delay to mimic fingerprint scanning.
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     // Return a hardcoded fingerprint template for testing.
-    return "template_1006";
+    return "template_1002";
   }
 }
 

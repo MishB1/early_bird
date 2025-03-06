@@ -1,5 +1,7 @@
+import 'package:early_bird/presentation/pages/student_profile_page.dart';
+import 'package:early_bird/presentation/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'data/datasources/fingerprint_data_source.dart';
 import 'data/datasources/student_data.dart';
@@ -7,7 +9,6 @@ import 'data/local_storage/hive_helper.dart';
 import 'data/models/student_model.dart';
 import 'data/respositories/student_repository_impl.dart';
 import 'domain/usecases/get_student_by_fingerprint.dart';
-import 'presentation/pages/attendance_page.dart';
 import 'presentation/providers/attendance_provider.dart';
 
 void main() async {
@@ -25,20 +26,37 @@ void main() async {
         .toList(),
   );
 
-
   // Initialize dependencies for the application.
-  final fingerprintDataSource = MockFingerprintDataSource(); // Mock data source for testing.
-  final studentRepository = StudentRepositoryImpl(fingerprintDataSource: fingerprintDataSource);
-  final getStudentByFingerprint = GetStudentByFingerprint(repository: studentRepository);
+  final fingerprintDataSource =
+      MockFingerprintDataSource(); // Mock data source for testing.
+  final studentRepository = StudentRepositoryImpl(
+    fingerprintDataSource: fingerprintDataSource,
+  );
+  final getStudentByFingerprint = GetStudentByFingerprint(
+    repository: studentRepository,
+  );
 
-  // Run the app with the AttendancePage as the home screen.
-  runApp(
-    MaterialApp(
+  runApp(MyApp(getStudentByFingerprint: getStudentByFingerprint));
+}
+
+class MyApp extends StatelessWidget {
+  final GetStudentByFingerprint getStudentByFingerprint;
+
+  const MyApp({required this.getStudentByFingerprint, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Early Bird",
+      theme: EarlyBirdTheme,
       home: ChangeNotifierProvider(
         // Provide the AttendanceProvider to the widget tree.
-        create: (_) => AttendanceProvider(getStudentByFingerprint: getStudentByFingerprint),
-        child: AttendancePage(),
+        create:
+            (_) => AttendanceProvider(
+              getStudentByFingerprint: getStudentByFingerprint,
+            ),
+        child: StudentProfilePage(),
       ),
-    ),
-  );
+    );
+  }
 }

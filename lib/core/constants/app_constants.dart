@@ -41,6 +41,7 @@ class AppConstants {
   static const EdgeInsets paddingListTileName = EdgeInsets.fromLTRB(12, 0, 0, 0);
   static const EdgeInsets paddingListTileContact = EdgeInsets.fromLTRB(10, 5, 0, 0);
   static const EdgeInsets paddingListTileRow = EdgeInsets.all(8);
+  static const EdgeInsets paddingChip = EdgeInsets.symmetric(horizontal: 20, vertical: 10,);
 
   // Separators
   static const double separatorXS = 3.0;
@@ -72,11 +73,18 @@ class AppConstants {
   //----------------------------------------------------------------
   // Dimensions
 
+  //----------------------------------------------------------------
+  // Elevation
+  static const double elevationCard10 = 10.0;
+
   // Width
+  static const double width40 = 40.0;
+  static const double width60 = 60.0;
   static const double width250 = 250.0;
-  static const double widthImage = 60.0;
+  static const double width800 = 800.0;
 
   // Height
+  static const double height10 = 10.0;
   static const double height150 = 150.0;
   static const double heightSearchBar = 50.0;
   static const double heightImage = 60.0;
@@ -94,6 +102,11 @@ class AppConstants {
   static const BorderRadius radiusS = BorderRadius.all(Radius.circular(8));
   static const BorderRadius radiusM = BorderRadius.all(Radius.circular(10));
   static const BorderRadius radiusL = BorderRadius.all(Radius.circular(12));
+  static const BorderRadius radiusXL = BorderRadius.all(Radius.circular(15));
+
+  //----------------------------------------------------------------
+  // Circle Radius
+  static const double circleRadius80 = 80.0;
 
   //----------------------------------------------------------------
   // Assets
@@ -114,6 +127,8 @@ class AppConstants {
   static const String sortDateAsc = "Date Ascending";
   static const String sortDateDesc = "Date Descending";
   static const String sortNone = "None";
+  static const String studentProfile = "Student Profile";
+  static const String scan_your_finger = "Scan your finger";
 
   //----------------------------------------------------------------
   // Keys
