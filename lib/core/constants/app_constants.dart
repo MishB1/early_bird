@@ -127,7 +127,7 @@ class AppConstants {
   static const String sortDateAsc = "Date Ascending";
   static const String sortDateDesc = "Date Descending";
   static const String sortNone = "None";
-  static const String studentProfile = "Student Profile";
+  static const String earlyBird_student_attendance_system = "Early Bird Student Attendance System";
   static const String scan_your_finger = "Scan your finger";
 
   //----------------------------------------------------------------
