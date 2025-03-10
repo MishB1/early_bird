@@ -9,7 +9,7 @@ class StudentProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppConstants.studentProfile),
+        title: Text(AppConstants.earlyBird_student_attendance_system),
         centerTitle: true,
       ),
       body: Center(
