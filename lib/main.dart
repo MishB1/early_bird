@@ -47,8 +47,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Early Bird",
-      theme: EarlyBirdTheme,
+      theme: earlyBirdTheme,
       home: ChangeNotifierProvider(
         // Provide the AttendanceProvider to the widget tree.
         create:
