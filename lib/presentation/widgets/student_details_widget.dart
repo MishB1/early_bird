@@ -52,13 +52,12 @@ class StudentDetailsWidget extends StatelessWidget {
               ),
               SizedBox(height: AppConstants.height10),
               Chip(
-                label: Text(
-                  student['grade'],
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                backgroundColor: Theme.of(context).colorScheme.secondary,
-                padding: AppConstants.paddingChip,
-              ),
+                label: Text(student['grade']),
+                backgroundColor: Theme.of(context).chipTheme.backgroundColor,
+                labelStyle: Theme.of(context).chipTheme.labelStyle,
+                shape: Theme.of(context).chipTheme.shape,
+                padding: Theme.of(context).chipTheme.padding,
+              )
             ],
           ),
         ),
