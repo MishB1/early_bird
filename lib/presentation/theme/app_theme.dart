@@ -1,32 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final ThemeData EarlyBirdTheme = ThemeData(
+// Define the color palette
+class AppColors {
+  static const Color background = Color(0xFFE9E6DF); // Light beige
+  static const Color primary = Color(0xFF0B074C); // Dark blue
+  static const Color secondary = Color(0xFF6C6D90); // Muted purple
+  static const Color accent = Color(0xFF721212); // Dark red
+  static const Color error = Color(0xFFB30305); // Bright red
+  static const Color success = Color(0xFF4CAF50); // Green (added for success states)
+  static const Color warning = Color(0xFFFFC107); // Amber (added for warnings)
+  static const Color textPrimary = Color(0xFF000000); // Black
+  static const Color textSecondary = Color(0xFF6C6D90); // Muted purple
+  static const Color textDisabled = Color(0xFF9E9E9E); // Grey
+}
+
+// Define the app theme
+final ThemeData earlyBirdTheme = ThemeData(
   // Brightness
   brightness: Brightness.light,
 
-  // Primary Color
-  primaryColor: Colors.blue.shade800,
-  primarySwatch: Colors.blue,
-
-  // Accent Color
+  // Color Scheme
   colorScheme: ColorScheme.light(
-    secondary: Colors.orange.shade400, // Accent color
+    primary: AppColors.primary,
+    secondary: AppColors.secondary,
+    background: AppColors.background,
+    surface: Colors.white,
+    error: AppColors.error,
+    onPrimary: Colors.white,
+    onSecondary: Colors.white,
+    onBackground: AppColors.textPrimary,
+    onSurface: AppColors.textPrimary,
+    onError: Colors.white,
   ),
 
   // Scaffold Background Color
-  scaffoldBackgroundColor: Colors.grey.shade100,
+  scaffoldBackgroundColor: AppColors.background,
 
   // AppBar Theme
   appBarTheme: AppBarTheme(
-    color: Colors.blue.shade800,
+    color: AppColors.primary,
     elevation: 0,
     titleTextStyle: GoogleFonts.poppins(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
-    iconTheme: IconThemeData(color: Colors.white),
+    iconTheme: const IconThemeData(color: Colors.white),
   ),
 
   // Text Theme
@@ -34,43 +54,71 @@ final ThemeData EarlyBirdTheme = ThemeData(
     headlineLarge: GoogleFonts.poppins(
       fontSize: 32,
       fontWeight: FontWeight.bold,
-      color: Colors.blue.shade800,
+      color: AppColors.primary,
     ),
     headlineMedium: GoogleFonts.poppins(
       fontSize: 24,
       fontWeight: FontWeight.bold,
-      color: Colors.blue.shade800,
+      color: AppColors.primary,
     ),
     headlineSmall: GoogleFonts.poppins(
       fontSize: 18,
       fontWeight: FontWeight.bold,
-      color: Colors.blue.shade800,
+      color: AppColors.primary,
     ),
     bodyLarge: GoogleFonts.poppins(
       fontSize: 16,
       fontWeight: FontWeight.normal,
-      color: Colors.black87,
+      color: AppColors.textPrimary,
     ),
     bodyMedium: GoogleFonts.poppins(
       fontSize: 14,
       fontWeight: FontWeight.normal,
-      color: Colors.black87,
+      color: AppColors.textPrimary,
     ),
     bodySmall: GoogleFonts.poppins(
       fontSize: 12,
       fontWeight: FontWeight.normal,
-      color: Colors.black54,
+      color: AppColors.textDisabled,
     ),
   ),
 
-  // Button Theme
+  // Button Themes
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.blue.shade800,
+      backgroundColor: AppColors.primary,
       foregroundColor: Colors.white,
-      textStyle: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      textStyle: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      foregroundColor: AppColors.primary,
+      textStyle: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      foregroundColor: AppColors.primary,
+      side: const BorderSide(color: AppColors.primary),
+      textStyle: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
     ),
   ),
 
@@ -80,17 +128,74 @@ final ThemeData EarlyBirdTheme = ThemeData(
     fillColor: Colors.white,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: Colors.grey.shade300),
+      borderSide: const BorderSide(color: AppColors.textDisabled),
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: Colors.grey.shade300),
+      borderSide: const BorderSide(color: AppColors.textDisabled),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: Colors.blue.shade800),
+      borderSide: const BorderSide(color: AppColors.primary),
     ),
-    labelStyle: GoogleFonts.poppins(color: Colors.blue.shade800),
-    hintStyle: GoogleFonts.poppins(color: Colors.grey.shade500),
+    labelStyle: GoogleFonts.poppins(
+      color: AppColors.textSecondary,
+    ),
+    hintStyle: GoogleFonts.poppins(
+      color: AppColors.textDisabled,
+    ),
+    errorStyle: GoogleFonts.poppins(
+      color: AppColors.error,
+      fontSize: 12,
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(color: AppColors.error),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(color: AppColors.error),
+    ),
+  ),
+
+  // SnackBar Theme
+  snackBarTheme: SnackBarThemeData(
+    backgroundColor: AppColors.primary,
+    contentTextStyle: GoogleFonts.poppins(
+      color: Colors.white,
+      fontSize: 14,
+    ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+    behavior: SnackBarBehavior.floating,
+  ),
+
+  // Chip Theme
+  chipTheme: ChipThemeData(
+    backgroundColor: AppColors.secondary.withOpacity(0.2),
+    labelStyle: GoogleFonts.poppins(
+      color: AppColors.primary,
+      fontSize: 14,
+    ),
+    selectedColor: AppColors.primary,
+    secondarySelectedColor: AppColors.primary,
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+  ),
+
+  // Divider Theme
+  dividerTheme: DividerThemeData(
+    color: AppColors.textDisabled.withOpacity(0.5),
+    thickness: 1,
+    space: 1,
+  ),
+
+  // Progress Indicator Theme
+  progressIndicatorTheme: ProgressIndicatorThemeData(
+    color: AppColors.primary,
+    linearTrackColor: AppColors.textDisabled.withOpacity(0.2),
   ),
 );
