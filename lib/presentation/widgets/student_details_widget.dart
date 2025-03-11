@@ -57,7 +57,7 @@ class StudentDetailsWidget extends StatelessWidget {
                 labelStyle: Theme.of(context).chipTheme.labelStyle,
                 shape: Theme.of(context).chipTheme.shape,
                 padding: Theme.of(context).chipTheme.padding,
-              )
+              ),
             ],
           ),
         ),
