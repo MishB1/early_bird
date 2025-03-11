@@ -1,14 +1,5 @@
-/*
-Template for App Constants
-
-- Define app-wide constants (e.g., margins, padding, text sizes, icon sizes).
-- Example:
-  static const double marginSmall = 5.0;
-  static const double textTitle = 18.0;
-  static const String searchHint = "Search...";
-*/
-
 import 'package:flutter/material.dart';
+import '../../presentation/theme/app_theme.dart';
 
 class AppConstants {
   //----------------------------------------------------------------
@@ -35,13 +26,38 @@ class AppConstants {
 
   // Custom Padding
   static const EdgeInsets paddingSearchBar = EdgeInsets.fromLTRB(10, 8, 10, 12);
-  static const EdgeInsets paddingSearchBarRow = EdgeInsets.fromLTRB(12, 0, 8, 0);
-  static const EdgeInsets paddingSearchBarField = EdgeInsets.fromLTRB(4, 0, 0, 0);
-  static const EdgeInsets paddingListTile = EdgeInsets.symmetric(horizontal: 10);
-  static const EdgeInsets paddingListTileName = EdgeInsets.fromLTRB(12, 0, 0, 0);
-  static const EdgeInsets paddingListTileContact = EdgeInsets.fromLTRB(10, 5, 0, 0);
+  static const EdgeInsets paddingSearchBarRow = EdgeInsets.fromLTRB(
+    12,
+    0,
+    8,
+    0,
+  );
+  static const EdgeInsets paddingSearchBarField = EdgeInsets.fromLTRB(
+    4,
+    0,
+    0,
+    0,
+  );
+  static const EdgeInsets paddingListTile = EdgeInsets.symmetric(
+    horizontal: 10,
+  );
+  static const EdgeInsets paddingListTileName = EdgeInsets.fromLTRB(
+    12,
+    0,
+    0,
+    0,
+  );
+  static const EdgeInsets paddingListTileContact = EdgeInsets.fromLTRB(
+    10,
+    5,
+    0,
+    0,
+  );
   static const EdgeInsets paddingListTileRow = EdgeInsets.all(8);
-  static const EdgeInsets paddingChip = EdgeInsets.symmetric(horizontal: 20, vertical: 10,);
+  static const EdgeInsets paddingChip = EdgeInsets.symmetric(
+    horizontal: 20,
+    vertical: 10,
+  );
 
   // Separators
   static const double separatorXS = 3.0;
@@ -76,6 +92,10 @@ class AppConstants {
   //----------------------------------------------------------------
   // Elevation
   static const double elevationCard10 = 10.0;
+
+  //----------------------------------------------------------------
+  // TabBar Controller Length
+  static const int tabBarControllerLength = 2;
 
   // Width
   static const double width40 = 40.0;
@@ -127,8 +147,8 @@ class AppConstants {
   static const String sortDateAsc = "Date Ascending";
   static const String sortDateDesc = "Date Descending";
   static const String sortNone = "None";
-  static const String earlyBird_student_attendance_system = "Early Bird Student Attendance System";
-  static const String scan_your_finger = "Scan your finger";
+  static const String studentManagement = "Student Management";
+  static const String scanYourFinger = "Scan your finger";
 
   //----------------------------------------------------------------
   // Keys
@@ -141,6 +161,12 @@ class AppConstants {
   // Icons
 
   static const Icon iconSearch = Icon(Icons.search);
+  static const Icon iconPeople = Icon(Icons.people, color: AppColors.secondary);
+  static const Icon iconFingerPrint = Icon(Icons.fingerprint);
+  static const Icon iconPersonAdd = Icon(
+    Icons.person_add,
+    color: AppColors.secondary,
+  );
 
   //----------------------------------------------------------------
   // Booleans
