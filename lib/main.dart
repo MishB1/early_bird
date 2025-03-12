@@ -1,5 +1,5 @@
-import 'package:early_bird/presentation/pages/student_profile_page.dart';
 import 'package:early_bird/presentation/theme/app_theme.dart';
+import 'package:early_bird/presentation/widgets/tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
             (_) => AttendanceProvider(
               getStudentByFingerprint: getStudentByFingerprint,
             ),
-        child: StudentProfilePage(),
+        child: TabBarController(),
       ),
     );
   }

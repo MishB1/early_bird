@@ -4,14 +4,10 @@ import 'package:provider/provider.dart';
 import '../providers/attendance_provider.dart';
 import '../widgets/student_details_widget.dart';
 
-class StudentProfilePage extends StatelessWidget {
+class AttendancePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppConstants.earlyBird_student_attendance_system),
-        centerTitle: true,
-      ),
       body: Center(
         child: Consumer<AttendanceProvider>(
           builder: (context, provider, child) {
@@ -19,7 +15,10 @@ class StudentProfilePage extends StatelessWidget {
               return CircularProgressIndicator();
             }
             if (provider.studentData == null) {
-              return Text(AppConstants.scan_your_finger);
+              return Text(
+                AppConstants.scanYourFinger,
+                style: Theme.of(context).textTheme.headlineLarge,
+              );
             }
             return StudentDetailsWidget(student: provider.studentData!);
           },
@@ -27,9 +26,12 @@ class StudentProfilePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await Provider.of<AttendanceProvider>(context, listen: false).fetchStudent();
+          await Provider.of<AttendanceProvider>(
+            context,
+            listen: false,
+          ).fetchStudent();
         },
-        child: Icon(Icons.fingerprint),
+        child: AppConstants.iconFingerPrint,
       ),
     );
   }
