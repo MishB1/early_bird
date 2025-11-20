@@ -1,4 +1,6 @@
 import 'package:early_bird/core/constants/app_constants.dart';
+import 'package:early_bird/presentation/widgets/card_sneaker.dart';
+import 'package:early_bird/presentation/widgets/star_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/attendance_provider.dart';
@@ -20,7 +22,10 @@ class AttendancePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineLarge,
               );
             }
-            return StudentDetailsWidget(student: provider.studentData!);
+            return StarRatingExample1();
+              CardSneaker();
+              // StudentDetailsWidget(student: provider.studentData!);
+
           },
         ),
       ),

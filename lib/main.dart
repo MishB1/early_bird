@@ -3,6 +3,7 @@ import 'package:early_bird/presentation/widgets/tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart';
 import 'data/datasources/fingerprint_data_source.dart';
 import 'data/datasources/student_data.dart';
 import 'data/local_storage/hive_helper.dart';
@@ -10,6 +11,8 @@ import 'data/models/student_model.dart';
 import 'data/respositories/student_repository_impl.dart';
 import 'domain/usecases/get_student_by_fingerprint.dart';
 import 'presentation/providers/attendance_provider.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart';
+
 
 void main() async {
   // Ensure Flutter binding is initialized before running the app.
@@ -50,6 +53,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Early Bird",
       theme: earlyBirdTheme,
+      // theme: earlyBirdTheme,
       home: ChangeNotifierProvider(
         // Provide the AttendanceProvider to the widget tree.
         create:
@@ -57,7 +61,7 @@ class MyApp extends StatelessWidget {
               getStudentByFingerprint: getStudentByFingerprint,
             ),
         child: TabBarController(),
-      ),
+      ) ,
     );
   }
 }
